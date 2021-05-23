@@ -16,9 +16,6 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   bool isLoading = false;
 
-
-
-
   void saveForm(
     String userName,
     String passwprd,
@@ -37,8 +34,12 @@ class _AuthScreenState extends State<AuthScreen> {
         userResult = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: passwprd);
 
-           await FirebaseStorage.instance.ref('${imageFile.path}').putFile(imageFile);
-         final profileImageUrl=   await FirebaseStorage.instance.ref('${imageFile.path}').getDownloadURL();
+        await FirebaseStorage.instance
+            .ref('${imageFile.path}')
+            .putFile(imageFile);
+        final profileImageUrl = await FirebaseStorage.instance
+            .ref('${imageFile.path}')
+            .getDownloadURL();
 
         await FirebaseFirestore.instance
             .collection('Users')
@@ -64,7 +65,7 @@ class _AuthScreenState extends State<AuthScreen> {
       } else
         errorMessage = 'somthing went wrong';
 
-      Scaffold.of(ctx).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(errorMessage),
           backgroundColor: Theme.of(context).errorColor));
     } catch (e) {
@@ -76,7 +77,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      //backgroundColor: Theme.of(context).primaryColor.withOpacity(0.9),
       body: AuthForm(saveForm, isLoading),
     );
   }

@@ -1,10 +1,10 @@
 import 'package:Chat/screens/auth_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:Chat/utils/constants.dart' as cons;
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:Chat/screens/chat_screen.dart';
 
 void main() {
@@ -19,29 +19,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-        super.initState();
-
-    final fcm = FirebaseMessaging();
-    fcm.requestNotificationPermissions();
-    fcm.configure(
-     
-      onLaunch: (message) {
-        print(message);
-        return;
-      },
-      onResume: (message) {
-        print('resume');
-        print(message);
-
-        return;
-      },
-      onMessage: (message) {
-        print('message');
-        print(message);
-
-        return;
-      },
-    );
+    super.initState();
   }
 
   @override
@@ -49,10 +27,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Chat',
       theme: ThemeData(
-        backgroundColor: Colors.pink,
-        primaryColor: Colors.purple,
-        accentColor: Colors.pink,
-        primarySwatch: Colors.purple,
+        primaryColor: cons.indigo,
+        primarySwatch: Colors.deepPurple,
         accentColorBrightness: Brightness.dark,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         buttonTheme: ButtonTheme.of(context).copyWith(
@@ -61,6 +37,7 @@ class _MyAppState extends State<MyApp> {
           buttonColor: Theme.of(context).primaryColor,
           textTheme: ButtonTextTheme.primary,
         ),
+        fontFamily: 'Montserrat',
       ),
       home: FutureBuilder(
         future: Firebase.initializeApp(),
