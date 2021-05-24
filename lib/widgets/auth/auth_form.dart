@@ -36,10 +36,13 @@ class _AuthFormState extends State<AuthForm> {
   void trySubmit() {
     if (!_fomKey.currentState.validate()) return;
     FocusScope.of(context).unfocus();
-    if (_profileImage == null && !_isLogin)
+    if (_profileImage == null && !_isLogin){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('please choose image!'),
       ));
+      
+      return;
+      }
     _fomKey.currentState.save();
     widget.saveForm(
       _userName.trim(),

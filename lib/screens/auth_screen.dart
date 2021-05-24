@@ -62,8 +62,12 @@ class _AuthScreenState extends State<AuthScreen> {
         errorMessage = 'No user found for that email.';
       } else if (e.code == 'wrong-password') {
         errorMessage = 'Wrong password provided for that user.';
-      } else
+      } else if (e.code == 'invalid-email') {
+        errorMessage = 'The email address is badly formatted.';
+      } else {
         errorMessage = 'somthing went wrong';
+        print("code " + e.code + " \nmess " + e.message);
+      }
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(errorMessage),
