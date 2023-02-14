@@ -19,9 +19,9 @@ and chat with them easily and directly
 
 #Tools & techniques:
 
-Chatti developed using Flutter framework from Google and Vs code. The app uses a few Google Cloud services such as Firebase to provide authentication, database, file storage and cloud messaging. Authentication used to authenticate users, database used to  store massages between users, file storage used to upload user’s profile image and cloud messaging  to push notification to users. The app connected with Firebase use the applicationId. The app have simple and straightforward design. 
+Chatti developed using Flutter framework . The app uses a few Google Cloud services such as Firebase to provide authentication, database, file storage and cloud messaging. Authentication used to authenticate users, database used to  store massages between users, file storage used to upload user’s profile image and cloud messaging  to push notification to users. The app have simple and straightforward design. 
   
 
 # App 
-   ![image](https://user-images.githubusercontent.com/24944117/119264089-6370a480-bbea-11eb-9eff-e6be98b174ff.png)
+![PicsArt_02-14-11 08 36](https://user-images.githubusercontent.com/24944117/218691403-02676366-c785-40a0-8cdd-081b898c52e3.png)
 
